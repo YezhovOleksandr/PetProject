@@ -30,9 +30,18 @@ public class UserServiceImpl implements UserService {
         return userDao.findById(id).orElse(null);
     }
 
+    //TODO Write exception and create user DTO for changing everything except password and vica versa
     @Override
-    public User updateUser(User user) {
-        return userDao.save(user);
+    public User updateUser(User user, Long id) {
+        return userDao.findById(id)
+                .map(user1 -> {
+                    user1.setFirst_name(user.getFirst_name());
+                    user1.setLast_name(user.getLast_name());
+                    user1.setUsername(user.getUsername());
+                    user1.setEmail(user.getEmail());
+                    user1.setPassword(user.getPassword());
+                    return userDao.save(user1);
+                }).orElseThrow(()-> {throw new RuntimeException();});
     }
 
     //TODO create exception for this method
