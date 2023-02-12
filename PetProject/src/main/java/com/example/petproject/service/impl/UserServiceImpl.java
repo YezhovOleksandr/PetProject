@@ -4,11 +4,13 @@ import com.example.petproject.dao.UserDao;
 import com.example.petproject.models.User;
 import com.example.petproject.service.UserService;
 import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
 @AllArgsConstructor
+@Service
 public class UserServiceImpl implements UserService {
 
     private final UserDao userDao;
