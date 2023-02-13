@@ -16,11 +16,11 @@ export default function Register() {
     })
     const{first_name, last_name, username, password, email} = user
 
-    const onInputChange=(e  )=>{
+    const onInputChange=(e ) => {
         setUser({...user, [e.target.name]:e.target.value})
     }
 
-    const onSubmit= async (e)=>{
+    const onSubmit= async (e) => {
         e.preventDefault()
         await axios.post("http://localhost:8080/register", user)
         navigate("/login")
@@ -37,7 +37,7 @@ export default function Register() {
                         <input type={"text"} placeholder="Username"  name={"username"} value={username} onChange={(e)=>onInputChange(e)}/>
                         <input type={"password"} placeholder="password"  name={"password"} value={password} onChange={(e)=>onInputChange(e)}/>
                         <input type={"text"} placeholder="email address" name={"email"} value={email} onChange={(e)=>onInputChange(e)}/>
-                        <button type={"submit"}>create</button>
+                        <button type={"submit"}>Register</button>
                         <p className="message">Already registered? <Link to={"/login"}>Sign In</Link></p>
                     </form>
 
