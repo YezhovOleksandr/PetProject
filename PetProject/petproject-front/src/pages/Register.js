@@ -40,12 +40,7 @@ export default function Register() {
                         <button type={"submit"}>create</button>
                         <p className="message">Already registered? <Link to={"/login"}>Sign In</Link></p>
                     </form>
-                    {/*<form className="login-form">*/}
-                    {/*    <input type="text" placeholder="username"/>*/}
-                    {/*    <input type="password" placeholder="password"/>*/}
-                    {/*    <button>login</button>*/}
-                    {/*    <p className="message">Not registered? <a href="#">Create an account</a></p>*/}
-                    {/*</form>*/}
+
                 </div>
             </div>
 
