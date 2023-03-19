@@ -1,7 +1,9 @@
 package com.example.PetProject.models;
 
+import com.example.PetProject.models.audit.DateAudit;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.NaturalId;
 
@@ -11,6 +13,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.util.HashSet;
 import java.util.Set;
+@EqualsAndHashCode(callSuper = true)
 @Entity
 
 @Table(name = "users", uniqueConstraints = {
@@ -24,7 +27,7 @@ import java.util.Set;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class User {
+public class User extends DateAudit {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

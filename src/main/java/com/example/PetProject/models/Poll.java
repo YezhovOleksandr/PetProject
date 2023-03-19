@@ -1,6 +1,8 @@
 package com.example.PetProject.models;
 
+import com.example.PetProject.models.audit.UserDateAudit;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import org.hibernate.annotations.BatchSize;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
@@ -13,10 +15,11 @@ import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 
+@EqualsAndHashCode(callSuper = true)
 @Entity
 @Table(name = "polls")
 @Data
-public class Poll {
+public class Poll extends UserDateAudit {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

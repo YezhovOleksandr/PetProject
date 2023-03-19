@@ -1,9 +1,12 @@
 package com.example.PetProject.models;
 
+import com.example.PetProject.models.audit.DateAudit;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
 
+@EqualsAndHashCode(callSuper = true)
 @Entity
 @Table(name = "votes", uniqueConstraints = {
         @UniqueConstraint(columnNames = {
@@ -12,7 +15,7 @@ import javax.persistence.*;
         })
 })
 @Data
-public class Vote {
+public class Vote extends DateAudit {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
