@@ -20,7 +20,7 @@ public interface VoteRepository extends JpaRepository<Vote, Long> {
     List<ChoiceVoteCount> countByPollIdGroupByChoiceId(@Param("pollId") Long pollId);
 
     @Query(value = "SELECT v FROM Vote v WHERE v.user.id = :userId and v.poll.id IN :pollIds")
-    List<Vote> findByUserIdAndPollIdIn(@Param("userId") Long userId, @Param("pollId") Long pollId);
+    List<Vote> findByUserIdAndPollIdIn(@Param("userId") Long userId, @Param("pollId") List<Long> pollId);
 
     @Query(value = "SELECT v FROM Vote v WHERE v.user.id = :userId and v.poll.id = :pollId")
     Vote findByUserIdAndPollId(@Param("userid") Long userId, @Param("pollId") Long pollId);
