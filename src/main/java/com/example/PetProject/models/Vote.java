@@ -21,11 +21,11 @@ public class Vote extends DateAudit {
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "poll_id", nullable = false)
+    @JoinColumn(name = "poll_id", nullable = false, insertable = false)
     private Poll poll;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "poll_id", nullable = false)
+    @JoinColumn(name = "poll_id", nullable = false, insertable = false, updatable = false)
     private Choice choice;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
